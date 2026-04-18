@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles, Star } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -72,6 +73,11 @@ const fadeUp: import("framer-motion").Variants = {
 };
 
 const Index = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const blobY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
   return (
     <div className="min-h-screen bg-paper text-ink grain overflow-x-hidden">
       {/* Nav */}
@@ -95,42 +101,66 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative pt-36 pb-24 md:pt-44 md:pb-36 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+      <section ref={heroRef} id="top" className="relative pt-36 pb-24 md:pt-44 md:pb-36 px-6 md:px-12 overflow-hidden">
+        {/* Decorative floating shapes */}
+        <motion.div
+          style={{ y: blobY }}
+          className="absolute top-32 -left-20 w-72 h-72 rounded-full bg-terracotta/15 blur-3xl animate-float-slow pointer-events-none"
+          aria-hidden
+        />
+        <motion.div
+          style={{ y: blobY }}
+          className="absolute bottom-10 right-0 w-96 h-96 rounded-full bg-gold/15 blur-3xl animate-float-slower pointer-events-none"
+          aria-hidden
+        />
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center relative">
           <motion.div
             initial="hidden" animate="show" variants={fadeUp}
             className="md:col-span-7 order-2 md:order-1"
           >
-            <div className="flex items-center gap-3 mb-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
+              className="flex items-center gap-3 mb-8"
+            >
               <span className="h-px w-12 bg-ink" />
               <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Portfolio · MMXXVI</span>
-            </div>
+            </motion.div>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-balance">
-              Crafting <em className="text-terracotta not-italic">intelligent</em>
+              <span className="reveal-line"><span style={{ animationDelay: "0.1s" }}>Crafting <em className="text-terracotta not-italic">intelligent</em></span></span>
               <br />
-              systems with <em className="italic">curiosity</em>
+              <span className="reveal-line"><span style={{ animationDelay: "0.3s" }}>systems with <em className="italic">curiosity</em></span></span>
               <br />
-              & code.
+              <span className="reveal-line"><span style={{ animationDelay: "0.5s" }}>& code.</span></span>
             </h1>
-            <p className="mt-8 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
+              className="mt-8 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground"
+            >
               I'm a final-year Computer Science student at FAST NUCES, building at the intersection of
               deep learning, computer vision and full-stack engineering — with a particular love for
               models that <em>see</em> and <em>understand</em>.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }}
+              className="mt-10 flex flex-wrap items-center gap-4"
+            >
               <a href="#work">
-                <Button className="bg-ink hover:bg-ink/90 text-paper rounded-none h-12 px-7 text-xs uppercase tracking-[0.2em]">
+                <Button className="bg-ink hover:bg-terracotta text-paper rounded-none h-12 px-7 text-xs uppercase tracking-[0.2em] transition-colors duration-500">
                   View Selected Work
                 </Button>
               </a>
               <a href="#contact">
-                <Button variant="outline" className="border-ink text-ink hover:bg-ink hover:text-paper rounded-none h-12 px-7 text-xs uppercase tracking-[0.2em] bg-transparent">
+                <Button variant="outline" className="border-ink text-ink hover:bg-ink hover:text-paper rounded-none h-12 px-7 text-xs uppercase tracking-[0.2em] bg-transparent transition-colors duration-500">
                   Hire Me
                 </Button>
               </a>
-            </div>
+            </motion.div>
 
-            <div className="mt-14 grid grid-cols-3 gap-8 max-w-md border-t border-rule/60 pt-6">
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}
+              className="mt-14 grid grid-cols-3 gap-8 max-w-md border-t border-rule/60 pt-6"
+            >
               <div>
                 <div className="font-display text-3xl">06</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1">Projects</div>
@@ -143,24 +173,33 @@ const Index = () => {
                 <div className="font-display text-3xl">'26</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1">Graduating</div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
+            style={{ y: portraitY }}
             initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="md:col-span-5 order-1 md:order-2 relative"
           >
             <div className="relative aspect-[4/5] max-w-md mx-auto">
-              <div className="absolute -inset-4 border border-ink/20" aria-hidden />
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-terracotta/90" aria-hidden />
-              <img
-                src={portrait}
-                alt="Editorial portrait of Ishrat Fatima, Computer Science student"
-                width={896}
-                height={1152}
-                className="relative w-full h-full object-cover shadow-editorial"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.4 }}
+                className="absolute -inset-4 border border-ink/20" aria-hidden
               />
+              <motion.div
+                initial={{ opacity: 0, x: 20, y: 20 }} animate={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 1, delay: 0.6 }}
+                className="absolute -bottom-4 -right-4 w-32 h-32 bg-terracotta" aria-hidden
+              />
+              <div className="img-zoom relative w-full h-full">
+                <img
+                  src={portrait}
+                  alt="Editorial portrait of Ishrat Fatima, Computer Science student"
+                  width={896}
+                  height={1152}
+                  className="relative w-full h-full object-cover shadow-editorial"
+                />
+              </div>
               <div className="absolute -left-6 top-8 -rotate-90 origin-left text-[10px] uppercase tracking-[0.4em] text-muted-foreground hidden md:block">
                 Issue No. 01 — Computer Science
               </div>
@@ -168,6 +207,22 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* MARQUEE strip */}
+      <div className="bg-ink text-paper py-6 overflow-hidden border-y border-ink">
+        <div className="marquee whitespace-nowrap font-display text-3xl md:text-4xl italic">
+          {Array.from({ length: 2 }).map((_, k) => (
+            <div key={k} className="flex items-center gap-12 pr-12">
+              {["Computer Vision", "Deep Learning", "Generative AI", "Full-Stack", "Research", "Open to Work"].map((w) => (
+                <span key={w} className="flex items-center gap-12">
+                  <span className="text-paper/90">{w}</span>
+                  <Star className="w-5 h-5 text-terracotta fill-terracotta shrink-0" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ABOUT */}
       <section id="about" className="bg-paper-warm py-24 md:py-32 px-6 md:px-12 border-y border-rule/50">
