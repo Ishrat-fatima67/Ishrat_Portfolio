@@ -73,6 +73,11 @@ const fadeUp: import("framer-motion").Variants = {
 };
 
 const Index = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const blobY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
   return (
     <div className="min-h-screen bg-paper text-ink grain overflow-x-hidden">
       {/* Nav */}
