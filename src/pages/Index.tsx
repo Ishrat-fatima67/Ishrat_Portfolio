@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles, Star } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import { Button } from "@/components/ui/button";
 
