@@ -20,17 +20,29 @@ export default {
       backgroundImage: {
         'gradient-paper': 'var(--gradient-paper)',
         'gradient-accent': 'var(--gradient-accent)',
+        'gradient-ink': 'var(--gradient-ink)',
       },
       boxShadow: {
         editorial: 'var(--shadow-editorial)',
         soft: 'var(--shadow-soft)',
       },
       colors: {
-        ink: 'hsl(var(--ink))',
-        paper: 'hsl(var(--paper))',
+        ink: {
+          DEFAULT: 'hsl(var(--ink))',
+          soft: 'hsl(var(--ink-soft))',
+        },
+        paper: {
+          DEFAULT: 'hsl(var(--paper))',
+          warm: 'hsl(var(--paper-warm))',
+          deep: 'hsl(var(--paper-deep))',
+        },
         'paper-warm': 'hsl(var(--paper-warm))',
-        terracotta: 'hsl(var(--terracotta))',
+        terracotta: {
+          DEFAULT: 'hsl(var(--terracotta))',
+          deep: 'hsl(var(--terracotta-deep))',
+        },
         gold: 'hsl(var(--gold))',
+        olive: 'hsl(var(--olive))',
         rule: 'hsl(var(--rule))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
