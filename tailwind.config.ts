@@ -13,7 +13,25 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['"Cormorant Garamond"', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-paper': 'var(--gradient-paper)',
+        'gradient-accent': 'var(--gradient-accent)',
+      },
+      boxShadow: {
+        editorial: 'var(--shadow-editorial)',
+        soft: 'var(--shadow-soft)',
+      },
       colors: {
+        ink: 'hsl(var(--ink))',
+        paper: 'hsl(var(--paper))',
+        'paper-warm': 'hsl(var(--paper-warm))',
+        terracotta: 'hsl(var(--terracotta))',
+        gold: 'hsl(var(--gold))',
+        rule: 'hsl(var(--rule))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
