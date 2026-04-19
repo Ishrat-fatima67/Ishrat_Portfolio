@@ -102,5 +102,3 @@ You can deploy the production build (`npm run build` → `dist/`) to any static 
 This project is open source and free to use as a template for your own portfolio.
 
 ---
-
-Built with ❤️ using [Lovable](https://lovable.dev).
