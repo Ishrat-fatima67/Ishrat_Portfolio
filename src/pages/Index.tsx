@@ -205,9 +205,9 @@ const Index = () => {
                   className="relative w-full h-full object-cover shadow-editorial"
                 />
               </div>
-              <div className="absolute -left-6 top-8 -rotate-90 origin-left text-[10px] uppercase tracking-[0.4em] text-muted-foreground hidden md:block">
+              {/* <div className="absolute -left-6 top-8 -rotate-90 origin-left text-[10px] uppercase tracking-[0.4em] text-muted-foreground hidden md:block">
                 Issue No. 01 — Computer Science
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>
