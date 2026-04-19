@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles, Star, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles, Star, Download, Code2 } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -276,17 +276,14 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-px bg-rule/60 border border-rule/60">
             {projects.map((p, i) => (
-              <motion.a
+              <motion.div
                 key={p.title}
-                href={p.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: "-80px" }}
                 custom={i}
                 variants={fadeUp}
-                className="group relative bg-paper p-8 md:p-10 hover:bg-paper-warm transition-colors duration-500"
+                className="group relative bg-paper p-8 md:p-10 hover:bg-paper-warm transition-colors duration-500 flex flex-col"
               >
                 <div className="flex items-start justify-between mb-6">
                   <span className="font-display text-3xl text-terracotta">{p.n}</span>
@@ -302,7 +299,15 @@ const Index = () => {
                     </span>
                   ))}
                 </div>
-              </motion.a>
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center justify-center gap-2 self-start border border-ink text-ink hover:bg-ink hover:text-paper h-10 px-5 text-[10px] uppercase tracking-[0.25em] transition-colors duration-300"
+                >
+                  <Code2 className="w-4 h-4" /> View Code
+                </a>
+              </motion.div>
             ))}
           </div>
         </div>
