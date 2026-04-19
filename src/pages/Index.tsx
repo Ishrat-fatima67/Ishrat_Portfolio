@@ -155,7 +155,7 @@ const Index = () => {
                   Hire Me
                 </Button>
               </a>
-              <a href="/ishrat-fatima-cv.pdf" target="_blank" rel="noopener noreferrer" download>
+              <a href="/ishrat-fatima-cv.docx" download="Ishrat-Fatima-CV.docx">
                 <Button variant="ghost" className="text-ink hover:bg-terracotta/10 rounded-none h-12 px-7 text-xs uppercase tracking-[0.2em] transition-colors duration-500 gap-2">
                   <Download className="w-4 h-4" /> Download CV
                 </Button>
