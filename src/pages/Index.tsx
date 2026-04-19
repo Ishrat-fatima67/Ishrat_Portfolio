@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles, Star } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Award, GraduationCap, Sparkles, Star, Download } from "lucide-react";
 import portrait from "@/assets/portrait.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -153,6 +153,11 @@ const Index = () => {
               <a href="#contact">
                 <Button variant="outline" className="border-ink text-ink hover:bg-ink hover:text-paper rounded-none h-12 px-7 text-xs uppercase tracking-[0.2em] bg-transparent transition-colors duration-500">
                   Hire Me
+                </Button>
+              </a>
+              <a href="/ishrat-fatima-cv.pdf" target="_blank" rel="noopener noreferrer" download>
+                <Button variant="ghost" className="text-ink hover:bg-terracotta/10 rounded-none h-12 px-7 text-xs uppercase tracking-[0.2em] transition-colors duration-500 gap-2">
+                  <Download className="w-4 h-4" /> Download CV
                 </Button>
               </a>
             </motion.div>
@@ -421,9 +426,16 @@ const Index = () => {
             </a>
           </div>
 
-          <div className="mt-12 flex items-center justify-center gap-3 text-sm text-muted-foreground">
-            <MapPin className="w-4 h-4" />
-            <span>Based in Dera Ghazi Khan, Pakistan</span>
+          <div className="mt-12 flex flex-col items-center gap-6">
+            <a href="/ishrat-fatima-cv.pdf" target="_blank" rel="noopener noreferrer" download>
+              <Button className="bg-ink hover:bg-terracotta text-paper rounded-none h-12 px-8 text-xs uppercase tracking-[0.2em] transition-colors duration-500 gap-2">
+                <Download className="w-4 h-4" /> Download Résumé (PDF)
+              </Button>
+            </a>
+            <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground">
+              <MapPin className="w-4 h-4" />
+              <span>Based in Dera Ghazi Khan, Pakistan</span>
+            </div>
           </div>
         </div>
       </section>
