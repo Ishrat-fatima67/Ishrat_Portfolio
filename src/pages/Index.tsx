@@ -229,34 +229,80 @@ const Index = () => {
         </div>
       </div>
 
-      {/* ABOUT */}
-      <section id="about" className="bg-paper-warm py-24 md:py-32 px-6 md:px-12 border-y border-rule/50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
-            <div className="text-xs uppercase tracking-[0.3em] text-terracotta mb-4">§ About</div>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight">
-              A note from <em className="italic">the desk</em> of Ishrat.
-            </h2>
-          </div>
-          <div className="md:col-span-8 space-y-6 text-lg leading-relaxed">
-            <p className="font-display text-2xl md:text-3xl leading-snug text-balance">
-              "I believe great engineers are first great <em>observers</em> — of users,
-              of data, of patterns hiding in plain sight."
-            </p>
-            <p className="text-muted-foreground">
-              I'm a final-year BS Computer Science student at the National University of
-              Computer and Emerging Sciences (FAST NUCES), Chiniot–Faisalabad campus. My work
-              spans deep learning research — masked autoencoders, GANs, vision-language models —
-              and shipping full-stack products end-to-end.
-            </p>
-            <p className="text-muted-foreground">
-              Beyond code, I serve as a Teaching Assistant for Calculus, AI and Linear Algebra,
-              and have been recognised as a Silver Medalist and Dean's List holder. I'm now
-              looking for a graduate role where I can build thoughtful, useful AI systems.
-            </p>
-          </div>
+   {/* ABOUT */}
+{/* ABOUT */}
+<section
+  id="about"
+  className="bg-paper-warm py-28 md:py-36 px-6 md:px-12 border-y border-rule/40"
+>
+  <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
+
+    {/* LEFT SIDE */}
+    <div className="md:col-span-4 flex flex-col justify-start">
+      <div className="text-[11px] uppercase tracking-[0.35em] text-terracotta mb-6">
+        § About
+      </div>
+
+      <h2 className="font-display text-4xl md:text-5xl leading-tight text-primary">
+        A note from{" "}
+        <em className="italic text-terracotta font-normal">the desk</em>{" "}
+        of Ishrat.
+      </h2>
+    </div>
+
+    {/* RIGHT SIDE */}
+    <div className="md:col-span-8 relative">
+
+      {/* Vertical Divider */}
+      <div className="hidden md:block absolute left-0 top-2 bottom-2 w-px bg-rule/40"></div>
+
+      <div className="md:pl-10 space-y-10 max-w-2xl">
+
+        {/* QUOTE */}
+        <blockquote className="font-display text-2xl md:text-3xl leading-snug text-primary">
+          <span className="italic">
+            “I didn't get into CS because I loved math. I got into it because I loved the idea of making something from nothing.”
+          </span>
+        </blockquote>
+
+        {/* CONTENT */}
+        <div className="space-y-6 text-[17px] leading-relaxed text-muted-foreground">
+
+          <p>
+            <span className="italic text-primary/90">
+              That feeling—making something real from just an idea—is still what drives me.
+            </span>{" "}
+            I'm a Computer Science student wrapping up my degree, and I've spent the last few years building web apps that actually help people,{" "}
+            <span className="text-terracotta font-medium">
+              AI models that (mostly) work
+            </span>
+            , and cloud systems that didn’t crash on the first try.
+          </p>
+
+          <p>
+            I don’t believe in sticking to one “niche.” I prefer curiosity over labels—exploring frontend, backend, AI, and infrastructure. Recently, I’ve been leaning toward{" "}
+            <span className="text-terracotta font-medium">AI</span>,{" "}
+            <span className="text-terracotta font-medium">Cloud</span>, and{" "}
+            <span className="text-terracotta font-medium">Computer Vision</span>, though that might evolve.
+          </p>
+
+          <p className="text-primary font-medium">
+            What stays constant is my{" "}
+            <span className="text-terracotta">love for building and learning</span>—and I’m ready to bring both into a professional environment.
+          </p>
+
+          <p>
+            Alongside development, I work as a Teaching Assistant for{" "}
+            <span className="text-terracotta font-medium">Calculus</span>,{" "}
+            <span className="text-terracotta font-medium">AI</span>, and{" "}
+            <span className="text-terracotta font-medium">Linear Algebra</span>. I’ve also been recognized as a Silver Medalist and Dean’s List holder. Currently, I’m seeking a graduate role focused on building meaningful AI systems.
+          </p>
+
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* WORK */}
       <section id="work" className="py-24 md:py-32 px-6 md:px-12">
